@@ -38,7 +38,7 @@ const InventarioSchema = Schema({
     },
     estado: {
         type: Schema.Types.ObjectId,
-        ref: 'Estado',
+        ref: 'EstadoEquipo',
         required: true
     },
     tipoEquipo: {
