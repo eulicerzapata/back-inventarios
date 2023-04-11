@@ -1,10 +1,13 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 
 // middlewares
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
-
+app.use(cors({
+    origin: '*'
+}))
 const tipoEquipo = require('./routes/rutaTipoEquipo')
 const estadoEquipo = require('./routes/rutaEstadoEquipo')
 const usuario = require('./routes/rutaUsuario')
