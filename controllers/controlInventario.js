@@ -2,7 +2,7 @@ const Inventario = require('../models/modeloInventario')
 const { request, response} = require('express')
 const Usuario = require('../models/modeloUsuario')
 const Marca = require('../models/modeloMarca')
-const Estado = require('../models/modeloEstadoEquipo')
+const EstadoEquipo = require('../models/modeloEstadoEquipo')
 const TipoEquipo = require('../models/modeloTipoEquipo')
 // crear
 const createInventario= async (req = request, 
@@ -28,7 +28,7 @@ const createInventario= async (req = request,
             return res.status(400).json({msg: 'marca invalida'})
         }
         // validación de estado
-        const estadoDB = Estado.findOne({
+        const estadoDB = EstadoEquipo.findOne({
             _id: estado._id,
             estado: true
         })
@@ -78,11 +78,10 @@ const deleteInventario = async (req =request, res = response) =>{
 const updateInventario = async (req =request, res = response) =>{
     try{
         const {id} =req.params;
-        const inventarioUbdate= await Inventario.findByIdAndUpdate(id, req.body, {
-            new: true
-        })
+        const data = req.body
+        const inventario= await Inventario.findByIdAndUpdate(id,data, {new: true})
        
-        return res.json(inventarioUbdate)
+        return res.status(201).json(inventario)
     } catch (e) {
         return res.status(500).json({
           msg: "no se puede actualizar",
@@ -122,6 +121,5 @@ const getInventarios = async (req = request,
             })
         }
 }
-
 
 module.exports = { createInventario, getInventarios, deleteInventario, updateInventario}

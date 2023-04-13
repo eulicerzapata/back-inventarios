@@ -1,7 +1,8 @@
-const {Schema, model} = require('mongoose')
 
-const EstadoSchema = Schema({
-    nombre: {
+const { Schema, model } = require('mongoose')
+
+const EstadoEquipoSchema = Schema({
+    nombre:{
         type: String,
         required: [true, 'Nombre requerido']
     },
@@ -10,15 +11,14 @@ const EstadoSchema = Schema({
         default: true,
         required: true
     },
-    fechaCreacion: {
+    fechaCreacion:{
         type: Date,
         default: new Date()
     },
-    fechaActualizacion: {
+    fechaActualizacion:{
         type: Date,
         default: new Date()
-    }
+    },
 })
 
-module.exports = model('EstadoEqipo', EstadoSchema)
-
+module.exports = model('EstadoEquipo', EstadoEquipoSchema)
