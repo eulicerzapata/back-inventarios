@@ -18,7 +18,7 @@ const createTipoEquipo = async (req = request,
             nombre
         }
         const tipoEquipo = new TipoEquipo(data)
-        //console.log(tipoEquipo)
+        
         await tipoEquipo.save()
         return res.status(201).json(tipoEquipo)
     }catch(e){
@@ -71,10 +71,10 @@ const updateTipoEquipo = async (req =request, res = response) =>{
 const getTipoEquipos = async (req = request, 
     res = response) => {
     try{
-        const { estado } = req.query;
+        
 
-        const tipoEquiposDB = await TipoEquipo.find({estado})
-        //select * from tipoequipo where estado = ?;
+        const tipoEquiposDB = await TipoEquipo.find()
+        
         return res.json(tipoEquiposDB)
     }catch(e){
         return res.status(500).json({

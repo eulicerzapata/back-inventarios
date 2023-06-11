@@ -69,10 +69,7 @@ const updateEstadoEquipo = async (req =request, res = response) =>{
 const getEstadoEquipo = async (req = request, 
     res = response) => {
     try{
-        const { estado } = req.query;
-
-        const estadoEquipoDB = await EstadoEquipo.find({estado})
-        //select * from tipoequipo where estado = ?;
+        const estadoEquipoDB = await EstadoEquipo.find();
         return res.json(estadoEquipoDB)
     }catch(e){
         return res.status(500).json({

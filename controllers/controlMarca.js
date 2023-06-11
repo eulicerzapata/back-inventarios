@@ -71,10 +71,9 @@ const updateMarca = async (req =request, res = response) =>{
 const getMarca = async (req = request, 
     res = response) => {
     try{
-        const { estado } = req.query;
-
-        const marcaDB = await Marca.find({estado})
-        //select * from tipoequipo where estado = ?;
+       
+        const marcaDB = await Marca.find();
+       
         return res.json(marcaDB)
     }catch(e){
         return res.status(500).json({

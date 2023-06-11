@@ -97,7 +97,7 @@ const updateInventario = async (req =request, res = response) =>{
 const getInventarios = async (req = request, 
     res = response) => {
         try{
-            const inventariosDB = await Inventario.find()//select * from inventarios
+            const inventariosDB = await Inventario.find()
                 .populate({
                     path: 'usuario',
                     match: { estado: true }

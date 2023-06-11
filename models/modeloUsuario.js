@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose')
 
+
 const UsuarioSchema = Schema({
     nombre: {
         type: String,
@@ -11,10 +12,15 @@ const UsuarioSchema = Schema({
         unique: true
        
     },
-    estado: {
-        type: Boolean,
-        default: true,
-        required: true
+    
+    contraseña: {
+        type: String,
+        required: [true, 'constraseña requerido']
+    },
+    rol: {
+        type: String,
+        required: [true, 'rol requerido'],
+        enum:['administrador','docente']
     },
     fechaCreacion:{
         type: Date,

@@ -11,6 +11,7 @@ app.use(cors({
 const tipoEquipo = require('./routes/rutaTipoEquipo')
 const estadoEquipo = require('./routes/rutaEstadoEquipo')
 const usuario = require('./routes/rutaUsuario')
+const logiarse = require('./routes/rutaAut')
 const marca = require('./routes/rutaMarca')
 const inventario = require('./routes/rutaInventario')
 
@@ -18,6 +19,7 @@ const inventario = require('./routes/rutaInventario')
  app.use('/api/tipoequipos', tipoEquipo)
  app.use('/api/estadoequipo', estadoEquipo)
  app.use('/api/usuario', usuario)
+ app.use('/api/auth', logiarse)
  app.use('/api/marca', marca)
  app.use('/api/inventario', inventario)
 
