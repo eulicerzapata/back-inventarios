@@ -99,8 +99,8 @@ const getInventarios = async (req = request,
         try{
             const inventariosDB = await Inventario.find()
                 .populate({
-                    path: 'usuario',
-                    match: { estado: true }
+                    path: 'usuario'
+                    
                 })
                 .populate({
                     path: 'marca',
